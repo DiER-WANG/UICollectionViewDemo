@@ -68,6 +68,7 @@
         self->_numberOrSections++;
         [self->_collectionView insertSections:[NSIndexSet indexSetWithIndex:0]];
     } completion:^(BOOL finished) {
+        //[self->_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     }];
 }
 

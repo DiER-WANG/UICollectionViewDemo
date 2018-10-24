@@ -25,7 +25,7 @@
 - (void)initSubViews {
     _redView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     [self addSubview:_redView];
-    _redView.backgroundColor = [UIColor redColor];
+    _redView.backgroundColor = [UIColor blackColor];
 }
 
 @end

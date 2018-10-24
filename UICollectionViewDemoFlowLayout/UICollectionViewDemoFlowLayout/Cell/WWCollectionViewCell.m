@@ -32,10 +32,8 @@
     self.backgroundColor = [UIColor whiteColor];
     _titleLable = [[UILabel alloc] init];
     [self.contentView addSubview:_titleLable];
-}
-- (void)layoutSubviews {
-    [super layoutSubviews];
     _titleLable.center = self.contentView.center;
+    _titleLable.textAlignment = NSTextAlignmentCenter;
 }
 
 - (void)setImageInfo:(WWImageInfoModel *)imageInfo {
