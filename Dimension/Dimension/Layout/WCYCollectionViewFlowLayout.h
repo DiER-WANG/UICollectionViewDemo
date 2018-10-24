@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WCYCollectionViewLayoutAttributes.h"
 
-#define kMaxItemDimension 140
-#define kMaxItemSize CGSizeMake(kMaxItemDimension, kMaxItemDimension)
-
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol WCYCollectionViewFlowLayoutDelegate <UICollectionViewDelegateFlowLayout>
