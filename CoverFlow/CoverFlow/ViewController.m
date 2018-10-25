@@ -36,7 +36,7 @@
     _segmentedControl.selectedSegmentIndex = 0;
     
     _imagesArr = [NSMutableArray new];
-    for (NSUInteger i = 0; i < 13; i++) {
+    for (NSUInteger i = 0; i < 99; i++) {
         WCYImageModel *image = [WCYImageModel new];
         image.imageName = [self imageNameForIndex:i];
         [_imagesArr addObject:image];
@@ -104,6 +104,7 @@
 }
 
 - (void)segmentedValueChanged:(UISegmentedControl *)segment {
+    [_collectionView.collectionViewLayout invalidateLayout];
     if (segment.selectedSegmentIndex == 0) {
         [_collectionView setCollectionViewLayout:_normalFlowLayout
                                         animated:NO];
@@ -111,7 +112,6 @@
         [_collectionView setCollectionViewLayout:_coverFlowLayout
                                         animated:NO];
     }
-    [_collectionView.collectionViewLayout invalidateLayout];
 }
 
 @end

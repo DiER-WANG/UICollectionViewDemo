@@ -94,4 +94,23 @@
     [(WCYCollectionViewLayoutAttributes *)attributes setMaskingValue:maskAlpha];
 }
 
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+    CGFloat offsetAdjustment = MAXFLOAT;
+    CGFloat horizentalCenter = proposedContentOffset.x + CGRectGetWidth(self.collectionView.bounds)/2.0;
+    
+    CGRect proposedRect = CGRectMake(proposedContentOffset.x, 0, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
+    
+    NSArray *array = [self layoutAttributesForElementsInRect:proposedRect];
+    for (UICollectionViewLayoutAttributes *attr in array) {
+        if (attr.representedElementCategory != UICollectionElementCategoryCell) {
+            continue;
+        }
+        CGFloat itemHorizontalCenter = attr.center.x;
+        if (fabs(itemHorizontalCenter - horizentalCenter) < fabs(offsetAdjustment)) {
+            offsetAdjustment = itemHorizontalCenter - horizentalCenter;
+        }
+    }
+    return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
+}
+
 @end
